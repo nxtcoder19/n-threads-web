@@ -1,3 +1,4 @@
+"use client"
 import classNames from "classnames";
 import React from "react";
 import { useState } from "react";
@@ -51,3 +52,13 @@ export const Textfield = ({ label, placeholder, icon }) => {
     </div>
   );
 };
+
+export const AuthTextField = ({ placeholder, type, name, onChange}) => {
+    return <input
+        className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        onChange={onChange}
+    />
+}

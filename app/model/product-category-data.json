@@ -1,0 +1,36 @@
+{
+  "category-details": [
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(1).webp",
+      "title": "category1"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(2).webp",
+      "title": "category2"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(3).webp",
+      "title": "category3"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(4).webp",
+      "title": "category4"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(5).webp",
+      "title": "category5"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(6).webp",
+      "title": "category6"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(7).webp",
+      "title": "category7"
+    },
+    {
+      "img": "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(8).webp",
+      "title": "category8"
+    }
+  ]
+}
