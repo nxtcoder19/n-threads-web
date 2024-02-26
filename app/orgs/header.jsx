@@ -3,6 +3,7 @@ import { Button } from "../atoms/button";
 import { Textfield } from "../atoms/textfield";
 import { BiSearchAlt2 } from "react-icons/bi";
 import {VscAccount} from "react-icons/vsc"
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -13,16 +14,18 @@ export const Header = () => {
       <div>
         <Textfield
           // label={"Enter your product details"}
-          placeholder={"Enter your product details"}
+          placeholder={"Enter your product details123"}
           icon={<BiSearchAlt2 />}
         ></Textfield>
       </div>
       <div className="place-self-center">
-        <Button
-        icon={<VscAccount/>}
-        label={"sign in"}
-        >
-        </Button>
+        <Link href={"/route/login"}>
+            <Button
+                icon={<VscAccount/>}
+                label={"sign in"}
+            >
+            </Button>
+        </Link>
       </div>
     </div>
   );

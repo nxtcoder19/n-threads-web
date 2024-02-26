@@ -1,5 +1,6 @@
 import { ImageCarouselDetails } from "../molecule/image-carousel";
 
+
 export const BestDealDetails = () => {
   const carouselImages = [
     "https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(1).webp",
