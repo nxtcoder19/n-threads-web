@@ -50,6 +50,7 @@ export const SignupResource = () => {
             if (response.status === 200) {
                 // toast.success('Sign up successfull');
                 toast.success("successful", { autoClose: 3000 });
+                window.location.href = "/route/login"
                 console.log("aaaa")
             }
 

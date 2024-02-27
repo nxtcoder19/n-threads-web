@@ -4,27 +4,52 @@ import { BiLogoFacebook } from "react-icons/bi";
 import {AuthTextField} from "@/app/atoms/textfield";
 import Link from "next/link";
 import {Typography} from "@material-tailwind/react";
+import {toast} from "react-toastify";
+import {useAuthApi} from "@/app/api/auth-api-provider";
 
 export const LoginResource = () => {
 
+    const {loginUser} = useAuthApi()
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    const [formData, setFormData] = useState({ email: "", password: "" });
+
     const handleChange = (event) => {
-        switch (event.target.name) {
-            case "email":
-                setEmail(event.target.value)
-                break;
-            case "password":
-                setPassword(event.target.value)
-                break;
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        console.log(`form data is: ${formData.email} and ${formData.password}`);
+
+        try {
+            const response = await loginUser(formData.email, formData.password)
+            console.log("response is", response.data['message'])
+
+            if (response.data['message'] === true) {
+                // toast.success('Sign up successfull');
+                // toast.success("successful", { autoClose: 3000 });
+                // window.location.href = "/route/login"
+                console.log("bbb")
+                // toast('Toast is good', {
+                //     hideProgressBar: true,
+                //     autoClose: 2000,
+                //     type: 'success'
+                // });
+                window.location.href = "/route/todo"
+                setFormData({ email: "", password: "" });
+                console.log("ccc")
+            }
+
+        } catch (e) {
+            console.log("login failed")
+            toast.warning("login failed");
+            console.log(e)
         }
     }
-
-    const user = {
-        email,
-        password
-    }
-    console.log("user", user)
 
     return (
         <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
@@ -115,7 +140,8 @@ export const LoginResource = () => {
                     </a>
                 </div>
 
-                <div className="text-center md:text-left">
+                <div onClick={handleSubmit}
+                    className="text-center md:text-left">
                     <button
                         className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
                         type="submit"

@@ -22,9 +22,7 @@ export const AuthApiProvider = ({children}) => {
             },
 
             updateUser: async (updateUserData) =>
-                boxServer.post("/auth/updateUser", {
-                    content: updateUserData
-                }),
+                boxServer.post("/auth/updateUser", updateUserData),
 
             deleteUser: async (email) => {
                 if (email) {
