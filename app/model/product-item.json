@@ -1,0 +1,74 @@
+{
+  "product-items": [
+    {
+      "id": 1,
+      "name": "iphone XS",
+      "price": 350,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    },
+    {
+      "id": 2,
+      "name": "iphone XS",
+      "price": 450,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    },
+    {
+      "id": 3,
+      "name": "iphone XS",
+      "price": 550,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    },
+    {
+      "id": 4,
+      "name": "iphone XS",
+      "price": 650,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    },
+    {
+      "id": 5,
+      "name": "iphone XS",
+      "price": 750,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    },
+    {
+      "id": 6,
+      "name": "iphone XS",
+      "price": 850,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    },
+    {
+      "id": 6,
+      "name": "iphone XS",
+      "price": 950,
+      "imageUrl" : "https://cdn.tuk.dev/assets/templates/classified/Bitmap (1).png",
+      "date" : "4 days ago",
+      "desc" : "The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing videos",
+      "warranty" : "12 months warranty",
+      "place" : "Bay Area, San Francisco"
+    }
+  ]
+}

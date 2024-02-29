@@ -19,6 +19,9 @@ export const ProductCategory = ({ categoryDetails }) => {
       <div className="-m-1 flex flex-wrap md:-m-2">
         {categoryDetails.map((category, index) => (
           <div
+            onClick={() => {
+                window.location.href = "/route/product-list"
+            }}
             key={index}
             className="sm:w-1/2 md:w-1/3 lg:w-1/4 md:p-2"
           >
