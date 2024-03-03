@@ -1,4 +1,4 @@
-import {createContext, useContext} from "react";
+import {createContext, useContext, useState} from "react";
 import ProductCategoryDetailsData from "../model/product-category-data.json"
 import ProductItemData from "../model/product-item.json"
 import useSWR from "swr";
@@ -48,15 +48,15 @@ export const ProductItemProvider = ({children}) => {
         acc[product.id] = product;
         return acc;
     }, {});
-    console.log("aaa",productData)
     return (
         <ProductItemContext.Provider
             value={
                 {
                     data,
+                    error,
                     isLoading,
                     products,
-                    productData
+                    productData,
                 }
             }>
             {children}

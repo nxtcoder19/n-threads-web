@@ -1,0 +1,34 @@
+version: 3
+
+dotenv:
+  - .secrets/env
+
+vars:
+  ImagePrefix: "piyushacet"
+  Image: "{{.ImagePrefix}}/nthreads_app_v1.0.0:latest"
+
+tasks:
+  dev:
+    interactive: true
+    cmds:
+      - npm run dev
+
+  docker:
+    cmds:
+      - task: docker:build
+      - task: docker:push
+
+  docker:build:
+    interactive: true
+    cmds:
+      - docker build -t {{.Image}} .
+
+  docker:run:
+    interactive: true
+    cmds:
+      - docker run -p 3000:3000 {{.Image}}
+
+  docker:push:
+    interactive: true
+    cmds:
+      - docker push {{.Image}}

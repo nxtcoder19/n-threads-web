@@ -7,6 +7,7 @@ import {useAuthApi} from "@/app/api/auth-api-provider";
 // import { toast } from 'react-hot-toast';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {RoutePath} from "@/app/common/common";
 
 export const SignupResource = () => {
 
@@ -143,7 +144,7 @@ export const SignupResource = () => {
                     Already have an account?{" "}
                     <a
                         className="text-red-600 hover:underline hover:underline-offset-4"
-                        href="/route/login"
+                        href={RoutePath.login}
                     >
                         SignIn
                     </a>
