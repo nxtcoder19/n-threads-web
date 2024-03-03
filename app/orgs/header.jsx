@@ -4,6 +4,7 @@ import { Textfield } from "../atoms/textfield";
 import { BiSearchAlt2 } from "react-icons/bi";
 import {VscAccount} from "react-icons/vsc"
 import Link from "next/link";
+import {RoutePath} from "@/app/common/common";
 
 export const Header = () => {
   return (
@@ -19,10 +20,10 @@ export const Header = () => {
         ></Textfield>
       </div>
       <div className="place-self-center">
-        <Link href={"/route/login"}>
+        <Link href={RoutePath.login}>
             <Button
                 icon={<VscAccount/>}
-                label={"sign in"}
+                label="signin"
             >
             </Button>
         </Link>

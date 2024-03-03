@@ -6,6 +6,7 @@ import Link from "next/link";
 import {Typography} from "@material-tailwind/react";
 import {toast} from "react-toastify";
 import {useAuthApi} from "@/app/api/auth-api-provider";
+import {RoutePath} from "@/app/common/common";
 
 export const LoginResource = () => {
 
@@ -39,7 +40,7 @@ export const LoginResource = () => {
                 //     autoClose: 2000,
                 //     type: 'success'
                 // });
-                window.location.href = "/route/todo"
+                window.location.href = RoutePath.todo
                 setFormData({ email: "", password: "" });
                 console.log("ccc")
             }
@@ -154,7 +155,7 @@ export const LoginResource = () => {
                         Don&apos;t have an account?{" "}
                         <a
                             className="text-red-600 hover:underline hover:underline-offset-4"
-                            href="/route/signup"
+                            href= {RoutePath.signup}
                         >
                             Register
                         </a>

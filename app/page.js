@@ -4,12 +4,14 @@ import { ProductsCategory } from "./orgs/products-category";
 import { BestDealDetails } from "./orgs/best-deal-details";
 import { Footer } from "./orgs/footter";
 import {ProductProvider} from "@/app/providers/product-provider";
+import {NavbarWithMegaMenu} from "@/app/orgs/navbar";
 
 
 export default function Home() {
   return (
     <main>
-      <Header />
+      {/*<Header />*/}
+      <NavbarWithMegaMenu/>
       <div className="py-6">
         <div className="container mx-auto ">
           <BestDealDetails/>
