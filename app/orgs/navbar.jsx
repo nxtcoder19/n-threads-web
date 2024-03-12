@@ -4,6 +4,8 @@ import {
     Typography,
 } from "@material-tailwind/react";
 import {NavList} from "@/app/molecule/navbar-component";
+import {AlertDialogDemo, ShowToast} from "@/app/atoms/toast";
+import { toast } from "sonner"
 
 
 export const NavbarWithMegaMenu = () => {
@@ -21,13 +23,15 @@ export const NavbarWithMegaMenu = () => {
             <div className="flex items-center justify-between text-blue-gray-900">
                 <Typography
                     as="a"
-                    href="#"
+                    href="/"
                     variant="h6"
                     color={"black"}
                     className="mr-4 cursor-pointer py-1.5 lg:ml-2"
                 >
                     Nthreads
                 </Typography>
+                <ShowToast/>
+                <AlertDialogDemo/>
 
                 <div className="hidden lg:block">
                     <NavList/>

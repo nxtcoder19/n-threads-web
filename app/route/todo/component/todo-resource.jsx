@@ -6,6 +6,7 @@ import {AuthTextField} from "@/app/atoms/textfield";
 import {toast} from "react-toastify";
 import {useTodoApi} from "@/app/api/todo-api-provider";
 import {useTodo} from "@/app/providers/todo-provider";
+import {MoreOptions} from "@/app/atoms/more-options";
 
 export const TodoResource = () => {
 
@@ -89,12 +90,19 @@ export const TodoResource = () => {
                                 <Card key={todoId}
                                     className="mt-6 w-96 py-4 px-2">
                                     <CardBody>
-                                        <Typography variant="h5" color="blue-gray" className="mb-2">
-                                            Title: {todoData[todoId].title}
-                                        </Typography>
-                                        <Typography>
-                                            Description: {todoData[todoId].description}
-                                        </Typography>
+                                        <div className={"flex flex-row justify-between"}>
+                                            <div>
+                                                <Typography variant="h5" color="blue-gray" className="mb-2">
+                                                    Title: {todoData[todoId].title}
+                                                </Typography>
+                                                <Typography>
+                                                    Description: {todoData[todoId].description}
+                                                </Typography>
+                                            </div>
+                                            <div>
+                                               <MoreOptions/>
+                                            </div>
+                                        </div>
                                     </CardBody>
                                 </Card>
                             )
