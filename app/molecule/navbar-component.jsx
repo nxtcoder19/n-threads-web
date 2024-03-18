@@ -10,6 +10,7 @@ import {
     UserGroupIcon
 } from "@heroicons/react/24/solid";
 import {RoutePath} from "@/app/common/common";
+import {ProfileMenu} from "@/app/orgs/menu-options";
 
 const navListMenuItems = [
     {
@@ -165,6 +166,7 @@ export const NavList = () => {
                     Login
                 </ListItem>
             </Typography>
+            {/*<ProfileMenu/>*/}
         </List>
     );
 }
