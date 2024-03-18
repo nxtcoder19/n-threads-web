@@ -3,10 +3,10 @@ import {Card,
     Typography,} from "@material-tailwind/react";
 import React, {useState} from "react";
 import {AuthTextField} from "@/app/atoms/textfield";
-import {toast} from "react-toastify";
 import {useTodoApi} from "@/app/api/todo-api-provider";
 import {useTodo} from "@/app/providers/todo-provider";
 import {MoreOptions} from "@/app/atoms/more-options";
+import {EditDialog} from "@/app/molecule/dialog";
 
 export const TodoResource = () => {
 
@@ -21,16 +21,21 @@ export const TodoResource = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(`form data is: ${formData.title} and ${formData.description}`);
-
-        try {
-            const response = await createTodo(formData)
-            console.log("response is", response)
-
-        } catch (e) {
-            console.log(e)
-        }
+        // console.log(`form data is: ${formData.title} and ${formData.description}`);
+        //
+        // try {
+        //     const response = await createTodo(formData)
+        //     console.log("response is", response)
+        //
+        // } catch (e) {
+        //     console.log(e)
+        // }
     }
+
+    const moreOptions = [
+        {id: 1, label: "Edit", value: "Edit", onClick: {handleSubmit}},
+        {id:2, label: "Delete", value: "Delete", onClick: {handleSubmit}},
+    ];
 
     return (
         <div className={"h-screen flex flex-col md:flex-row justify-center md:space-y-0 md:space-x-16 py-6 mx-5 md:mx-0 md:my-0"}>
@@ -72,6 +77,7 @@ export const TodoResource = () => {
                     >
                         Add Todo
                     </button>
+                    <EditDialog/>
                 </div>
             </div>
 
@@ -100,7 +106,7 @@ export const TodoResource = () => {
                                                 </Typography>
                                             </div>
                                             <div>
-                                               <MoreOptions/>
+                                               <MoreOptions moreOptions={moreOptions} todoId={todoId}/>
                                             </div>
                                         </div>
                                     </CardBody>
