@@ -38,6 +38,7 @@ export const ContinueButton = ({title, onClick}) => {
             className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
             type="submit"
             onClick={onClick}
+            disabled={true}
         >
             {title}
         </button>
@@ -47,5 +48,13 @@ export const ContinueButton = ({title, onClick}) => {
 export const CancelButton = () => {
     return (
         <Button variant="outlined">outlined</Button>
+    )
+}
+
+export const ConfirmButton = () => {
+    return (
+        <button>
+            <Button/>
+        </button>
     )
 }

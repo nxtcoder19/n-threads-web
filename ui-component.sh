@@ -1,9 +1,33 @@
 #! /usr/bin/env bash
 
-npx shadcn-ui@latest add dialog
-npx shadcn-ui@latest add alert-dialog
-npx shadcn-ui@latest add button
-npx shadcn-ui@latest add label
-npx shadcn-ui@latest add sonner
-npx shadcn-ui@latest add toast
-npx shadcn-ui@latest add select
+# Function to check if a component exists
+component_exists() {
+    local component_name="$1"
+    if [ -f "components/ui/$component_name.jsx" ]; then
+        return 0  # Component exists
+    else
+        return 1  # Component does not exist
+    fi
+}
+
+# Add components only if they don't already exist
+add_component() {
+    local component_name="$1"
+    if ! component_exists "$component_name"; then
+        echo "Adding $component_name"
+        npx shadcn-ui@latest add "$component_name"
+    else
+        echo "$component_name already exists. Skipping."
+    fi
+}
+
+mkdir -p components/ui
+
+# Add components
+add_component dialog
+add_component alert-dialog
+add_component button
+add_component label
+add_component sonner
+add_component toast
+add_component select

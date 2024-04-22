@@ -19,11 +19,9 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import React from "react";
+import React, {useState} from "react";
 import { DialogTextField} from "@/app/atoms/textfield";
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {CancelButton, ContinueButton, TextTypeButton} from "@/app/atoms/button";
 
 export const EditDialog = () => {
     return (
@@ -68,11 +66,9 @@ export const EditDialog = () => {
                     </div>
                 </div>
                 <DialogFooter>
-                    <div onClick={() => {
-                        console.log("clicked")
-                    }}>
-                        <Button type="submit" className={"bg-blue-500 hover:bg-blue-600"}>Save changes</Button>
-                    </div>
+                        <Button type="submit" className={"bg-blue-500 hover:bg-blue-600"} onClick={() => {
+                            console.log("clicked one")
+                        }}>Save changes</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
@@ -81,6 +77,9 @@ export const EditDialog = () => {
 
 
 export const DeleteDialog = () => {
+
+    const [textInput, setTextInput] = useState('')
+
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -105,16 +104,18 @@ export const DeleteDialog = () => {
                         // placeholder="confirm"
                         type={"text"}
                         name={"Description"}
+                        onChange={(e)=> {
+                            setTextInput(e.target.value)
+                        }}
                         // onChange={handleChange}
                     />
                 </div>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <div onClick={() => {
-                        console.log("clicked")
-                    }}>
-                        <AlertDialogAction className={"bg-blue-500 hover:bg-blue-600"}>Continue</AlertDialogAction>
-                    </div>
+                        <AlertDialogAction className={"bg-blue-500 hover:bg-blue-600"} disabled={textInput !== 'confirm'} onClick={()=> {
+                            console.log("delete clicked")
+                            setTextInput('')
+                        }}>Continue</AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
