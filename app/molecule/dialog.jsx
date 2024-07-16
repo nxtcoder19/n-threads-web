@@ -22,6 +22,7 @@ import {
 import React, {useState} from "react";
 import { DialogTextField} from "@/app/atoms/textfield";
 import { Label } from "@/components/ui/label"
+import {ArrowsOut, BellRinging} from "@/app/common/icons";
 
 export const EditDialog = () => {
     return (
@@ -76,15 +77,84 @@ export const EditDialog = () => {
 }
 
 
-export const DeleteDialog = () => {
+// export const DeleteDialog = () => {
+//
+//     const [textInput, setTextInput] = useState('')
+//
+//     return (
+//         <AlertDialog>
+//             <AlertDialogTrigger asChild>
+//                 {/*<Button variant="outline">Show Dialog</Button>*/}
+//                 <Button variant="text">Delete Dialog</Button>
+//             </AlertDialogTrigger>
+//             <AlertDialogContent>
+//                 <AlertDialogHeader>
+//                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+//                     <AlertDialogDescription>
+//                         This action cannot be undone. This will permanently delete your
+//                         account and remove your data from our servers.
+//                     </AlertDialogDescription>
+//                 </AlertDialogHeader>
+//                 <div>
+//                     <div className={"py-2"}>
+//                         <AlertDialogDescription>
+//                             Type <b>confirm</b> to delete
+//                         </AlertDialogDescription>
+//                     </div>
+//                     <DialogTextField
+//                         // placeholder="confirm"
+//                         type={"text"}
+//                         name={"Description"}
+//                         onChange={(e)=> {
+//                             setTextInput(e.target.value)
+//                         }}
+//                         // onChange={handleChange}
+//                     />
+//                 </div>
+//                 <AlertDialogFooter>
+//                     <AlertDialogCancel>Cancel</AlertDialogCancel>
+//                         <AlertDialogAction className={"bg-blue-500 hover:bg-blue-600"} disabled={textInput !== 'confirm'} onClick={()=> {
+//                             console.log("delete clicked")
+//                             setTextInput('')
+//                         }}>Continue</AlertDialogAction>
+//                 </AlertDialogFooter>
+//             </AlertDialogContent>
+//         </AlertDialog>
+//     )
+// }
 
-    const [textInput, setTextInput] = useState('')
 
+export const DeleteCartDialog = () => {
     return (
         <AlertDialog>
-            <AlertDialogTrigger asChild>
+            <AlertDialogTrigger className={""} asChild>
+                <ArrowsOut size={16}/>
                 {/*<Button variant="outline">Show Dialog</Button>*/}
-                <Button variant="text">Delete Dialog</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                        This action cannot be undone. This will permanently delete your
+                        cart item.
+                    </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction>Continue</AlertDialogAction>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+        </AlertDialog>
+    )
+}
+
+export const DeleteDialog = ({ open, onClose, onDelete }) => {
+    const [textInput, setTextInput] = useState('');
+
+    return (
+        <AlertDialog open={open} onOpenChange={onClose}>
+            <AlertDialogTrigger asChild>
+                <div />
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
@@ -101,24 +171,28 @@ export const DeleteDialog = () => {
                         </AlertDialogDescription>
                     </div>
                     <DialogTextField
-                        // placeholder="confirm"
                         type={"text"}
                         name={"Description"}
-                        onChange={(e)=> {
+                        onChange={(e) => {
                             setTextInput(e.target.value)
                         }}
-                        // onChange={handleChange}
                     />
                 </div>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                        <AlertDialogAction className={"bg-blue-500 hover:bg-blue-600"} disabled={textInput !== 'confirm'} onClick={()=> {
-                            console.log("delete clicked")
-                            setTextInput('')
-                        }}>Continue</AlertDialogAction>
+                    <AlertDialogCancel onClick={onClose}>Cancel</AlertDialogCancel>
+                    <AlertDialogAction
+                        className={"bg-blue-500 hover:bg-blue-600"}
+                        disabled={textInput !== 'confirm'}
+                        onClick={() => {
+                            onDelete();
+                            setTextInput('');
+                        }}>
+                        Continue
+                    </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
     )
 }
+
 

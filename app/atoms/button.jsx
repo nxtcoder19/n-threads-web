@@ -51,10 +51,10 @@ export const CancelButton = () => {
     )
 }
 
-export const ConfirmButton = () => {
+export const ConfirmButton = ({title, onClick}) => {
     return (
         <button>
-            <Button/>
+            <Button variant="outlined" onClick={onClick}>{title}</Button>
         </button>
     )
 }

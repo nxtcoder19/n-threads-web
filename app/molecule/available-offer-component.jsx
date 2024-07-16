@@ -1,7 +1,8 @@
 import {Confetti} from "@jengaicons/react"
 export const AvailableOfferComponent = ({offerComponentData}) =>{
 
-    const offerData = offerComponentData['offer-details']
+    // const offerData = offerComponentData['offer-details']
+    const offerData = offerComponentData
 
     return (
         <div>
@@ -9,14 +10,14 @@ export const AvailableOfferComponent = ({offerComponentData}) =>{
                 Available offers
             </div>
             <div className={"p-2"}>
-                {offerData.map((offer) => {
+                {offerData?.map((offer, index) => {
                     return (
-                        <div key={offer.id} className={"flex flex-row"}>
+                        <div key={index} className={"flex flex-row py-2 gap-4 items-center"}>
                             <div className={"flex items-center"}>
-                                <Confetti size={14} color={"blue"}/>
+                                <Confetti size={12} color={"blue"}/>
                             </div>
-                            <div className={"font-bold px-2"}>{offer.title}</div>
-                            <div className={"text-gray-500 px-2"}>{offer.description}</div>
+                            <span className={"font-semibold px-2 text-sm inline-block"}>{offer.title}</span>
+                            <div className={"text-gray-500 px-2 text-sm"}>{offer.description}</div>
                         </div>
                     )
                 })}

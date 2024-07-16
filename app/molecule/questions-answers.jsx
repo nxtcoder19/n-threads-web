@@ -2,16 +2,16 @@ import React from "react";
 
 export const QuestionsAnswers = ({questionAnswerData}) => {
 
-    const qnsData = questionAnswerData["question-answer"]
+    const qnsData = questionAnswerData
 
     return (
         <div className={"flex flex-col border border-gray-200 p-2"}>
             <div className={"font-bold text-lg border-b-2 py-4"}>
                 Questions and Answers
             </div>
-            {qnsData.map((qns) => {
+            {qnsData?.map((qns,index) => {
                 return (
-                    <div key={qns.id} className={"flex flex-col border-b-2 border-gray-200 p-2"}>
+                    <div key={index} className={"flex flex-col border-b-2 border-gray-200 p-2"}>
                         <div className={"flex flex-row font-semibold py-2"}>
                             <span>Q:</span>
                             <span>{qns.question}</span>

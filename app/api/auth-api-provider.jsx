@@ -1,7 +1,7 @@
 import {createContext, useContext} from "react";
 import {boxServer} from "@/app/common/common";
 
-const AuthApiContext = createContext()
+const AuthApiContext = createContext({})
 export const AuthApiProvider = ({children}) => {
     return (
         <AuthApiContext.Provider value={{
@@ -15,11 +15,13 @@ export const AuthApiProvider = ({children}) => {
             loginUser: async (email, password) => {
                 if (email && password) {
                     return boxServer.get(
-                        `/auth/login/${email}/${password}`
+                        `/auth/login/${email}/${password}`,
                     )
                 }
                 return null
             },
+
+            whoAmI: async () => boxServer.get("/auth/whoami"),
 
             updateUser: async (updateUserData) =>
                 boxServer.post("/auth/updateUser", updateUserData),
@@ -31,7 +33,9 @@ export const AuthApiProvider = ({children}) => {
                 return null
             },
 
-            logoutUser: async() => boxServer.delete("/auth/logout")
+            logoutUser: async() => boxServer.delete("/auth/logout"),
+
+            getSession: async () => boxServer.get(".secret/session-data"),
 
         }}>
             {children}

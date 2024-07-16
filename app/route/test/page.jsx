@@ -11,6 +11,9 @@ import {QuestionsAnswers} from "@/app/molecule/questions-answers";
 import QuestionAnswerData from "../../model/quention-answer.json"
 import {CartItems} from "@/app/orgs/cart-items";
 import CartItemsData from "../../model/cart-item-data.json"
+import {MenuDefault} from "@/app/orgs/menu-options";
+import {OrderDetails, OrderList} from "@/app/orgs/order-list";
+import OrderListData from "../../model/order-list-data.json"
 
 const Test = () => {
 
@@ -41,6 +44,8 @@ const Test = () => {
                     <Button variant="ghost">ghost button</Button>
                 </div>
 
+                <MenuDefault/>
+
                 <div className={"flex flex-row gap-2"}>
                     <AuthTextField placeholder={"auth text field"}/>
                     <DialogTextField placeholder={"dialog text field"}/>
@@ -67,18 +72,28 @@ const Test = () => {
 
                 <h1>Available offer component:</h1>
                 <div>
-                    <AvailableOfferComponent offerComponentData={AvailableOffers}/>
+                    <AvailableOfferComponent offerComponentData={AvailableOffers['offer-details']}/>
                 </div>
 
                 <h1>Questions Answers:</h1>
                 <div>
-                    <QuestionsAnswers questionAnswerData={QuestionAnswerData}/>
+                    <QuestionsAnswers questionAnswerData={QuestionAnswerData["question-answer"]}/>
                 </div>
 
                 <h1>Cart items:</h1>
                 <div>
-                    <CartItems cartItemData={CartItemsData}/>
+                    <CartItems cartItemData={CartItemsData["cart-item"]}/>
                 </div>
+
+                <div>
+                    <OrderList orderListData={OrderListData}/>
+                </div>
+
+                <h1>Order details:</h1>
+                <div>
+                    <OrderDetails/>
+                </div>
+
             </div>
         </div>
     )

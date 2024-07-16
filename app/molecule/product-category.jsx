@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {RoutePath} from "@/app/common/common";
 import {
     Card,
@@ -8,37 +8,35 @@ import {
     Typography,
     Tooltip,
 } from "@material-tailwind/react";
+import {useProductCategory} from "@/app/providers/product-provider";
 
 export const ProductCategory = ({ categoryDetails }) => {
   // const { categoryDetails } = props;
+
+    const {productCategoriesId, productCategoriesData, selectedProductCategoryId, setSelectedProductCategoryId} = useProductCategory();
+
 
   return (
     <div className="lg:pt-12">
       <div className="text-xl mb-5 font-semibold hover:text-blue-500">
         Top Deals :{" "}
-        {/* <a
-          href="https://www.cluemediator.com"
-          target="_blank"
-          className="text-blue-500 hover:underline"
-          rel="noopener noreferrer"
-        >
-          Clue Mediator
-        </a> */}
       </div>
       <div className="-m-1 flex flex-wrap gap-8 md:-m-2">
-        {categoryDetails.map((category, index) => (
+        {productCategoriesId?.map((productCategoryId) => (
             <Card
                 onClick={() => {
-                    window.location.href = RoutePath.productList
+                    // setSelectedProductCategoryId(productCategoryId);
+                    // window.location.href = RoutePath.productList
+                    window.location.href = `/route/product-category/${productCategoryId}`
                 }}
-                key={index}
+                key={productCategoryId}
                 className="w-72">
                 <CardHeader floated={false} >
-                    <img src={category.img} alt="profile-picture" />
+                    <img src={productCategoriesData[productCategoryId].imageUrl} alt="profile-picture" />
                 </CardHeader>
                 <CardBody className="text-center">
                     <Typography color="gray" className="mt-1 font-normal">
-                        {category.title}
+                        {productCategoriesData[productCategoryId].title}
                     </Typography>
                     <Typography color="gray" className="mt-1 font-normal font-bold">
                         under Rs 899
@@ -56,7 +54,7 @@ export const ProductCategory = ({ categoryDetails }) => {
           //   <div>
           //     <img
           //       className="h-full rounded-lg shadow-md"
-          //       src={category.img}
+          //       src={productCategoriesData[pro].img}
           //       alt={`Image ${index}`}
           //     />
           //

@@ -3,42 +3,42 @@ import {Button} from "@/components/ui/button";
 import React from "react";
 import {  Rating } from "@material-tailwind/react";
 
-export const ReviewComponent = () => {
+export const ReviewComponent = ({reviewData}) => {
     return (
-        <div className={" flex flex-row border-b-2 border-gray-200 py-4"}>
-            <div>
-                <CircularImg/>
-            </div>
+        <div className={" flex flex-col py-4"}>
+            {
+                reviewData?.map((review, index) => {
+                 return (
+                     <div key={index} className={"flex flex-row border-b-2 border-gray-200 py-4"}>
+                         <div>
+                             <CircularImg avatarUrl={review.avatarUrl}/>
+                         </div>
 
-            <div className={"px-2 flex-1"}>
-                <div className={"flex flex-row justify-between"}>
-                    <div className={"flex flex-col"}>
-                        <span className={"font-bold"}>
-                            name
-                        </span>
-                        <span className={"text-gray-500"}>
-                            address
-                        </span>
-                    </div>
-                    <div className={" flex items-center gap-2"}>
-                        <Rating unratedColor="blue" ratedColor="blue" value={3} readonly />
-                        <span className={"text-gray-500"}>june,2020</span>
-                    </div>
-                </div>
-                <div className={"py-4 text-gray-500"}>
-                    This is a multi-line comment in JavaScript.
-                    It can span several lines.
-                    Useful for explaining complex logic or code blocks.
-                    Remember, clarity is key in coding!
-                    his is a multi-line comment in JavaScript.
-                    It can span several lines.
-                    Useful for explaining complex logic or code blocks.
-                    Remember, clarity is key in coding!
-                </div>
-                <div className={"text-blue-400 hover:underline underline-offset-2"}>
-                    show images
-                </div>
-            </div>
+                         <div className={"px-2 flex-1"}>
+                             <div className={"flex flex-row justify-between"}>
+                                 <div className={"flex flex-col"}>
+                                     <span className={"font-bold"}>
+                                         {review.name}
+                                     </span>
+                                     <span className={"text-gray-500"}>
+                                         {review.address}
+                                     </span>
+                                 </div>
+                                 <div className={" flex items-center gap-2"}>
+                                     <Rating unratedColor="blue" ratedColor="blue" value={review.rating} readonly />
+                                     <span className={"text-gray-500"}>{review.date}</span>
+                                 </div>
+                             </div>
+                             <div className={"py-4 text-gray-500"}>
+                                 {review.description}
+                             </div>
+                             <div className={"text-blue-400 hover:underline underline-offset-2"}>
+                                 show images
+                             </div>
+                         </div>
+                     </div>
+                 )
+            })}
         </div>
     )
 }
