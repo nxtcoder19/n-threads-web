@@ -28,9 +28,9 @@ export const LoginResource = () => {
 
         try {
             const response = await loginUser(formData.email, formData.password)
-            console.log("response is", response.data['message'])
+            console.log("response is", response.data['message'], response.status)
 
-            if (response.data['message'] === true) {
+            if (response.status === 200) {
                 // toast.success('Sign up successfull');
                 // toast.success("successful", { autoClose: 3000 });
                 // window.location.href = "/route/login"
@@ -40,7 +40,7 @@ export const LoginResource = () => {
                 //     autoClose: 2000,
                 //     type: 'success'
                 // });
-                window.location.href = RoutePath.todo
+                window.location.href = "/"
                 setFormData({ email: "", password: "" });
                 console.log("ccc")
             }

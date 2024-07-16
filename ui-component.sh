@@ -31,3 +31,6 @@ add_component label
 add_component sonner
 add_component toast
 add_component select
+add_component dropdown-menu
+add_component radio-group
+add_component textarea

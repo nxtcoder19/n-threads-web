@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Collapse, List, ListItem, Menu, MenuHandler, MenuItem, MenuList, Typography} from "@material-tailwind/react";
 import {ChevronDownIcon} from "@heroicons/react/24/outline";
 import {
@@ -11,6 +11,10 @@ import {
 } from "@heroicons/react/24/solid";
 import {RoutePath} from "@/app/common/common";
 import {ProfileMenu} from "@/app/orgs/menu-options";
+import {BellRinging} from "@/app/common/icons";
+import {useApi} from "@/app/api/api-provider";
+import {toast} from "react-toastify";
+import {useAuth} from "@/app/providers/auth-provider";
 
 const navListMenuItems = [
     {
@@ -140,12 +144,15 @@ const NavListMenu = () => {
 }
 
 export const NavList = () => {
+
+    const { userName,isLoggedIn} = useAuth()
+
     return (
         <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
             <NavListMenu />
             <Typography
                 as="a"
-                href="#"
+                href={RoutePath.CartItems}
                 variant="small"
                 color="black"
                 className="font-medium"
@@ -155,18 +162,36 @@ export const NavList = () => {
                 </ListItem>
             </Typography>
 
-            <Typography
-                as="a"
-                href={RoutePath.login}
-                variant="small"
-                color="black"
-                className="font-medium"
-            >
-                <ListItem className="flex items-center gap-2 py-2 pr-4">
-                    Login
-                </ListItem>
-            </Typography>
-            {/*<ProfileMenu/>*/}
+            {
+                isLoggedIn ?
+                    <Typography
+                        as="a"
+                        // href={RoutePath.login}
+                        variant="small"
+                        color="black"
+                        className="font-medium"
+                    >
+                        <ListItem className="flex items-center gap-2 py-2 pr-4">
+                            {/*<span className="font-semibold">*/}
+                            {/*    {userName}*/}
+                            {/*</span>*/}
+                            <ProfileMenu userName={userName}/>
+                        </ListItem>
+                    </Typography> :
+                    <Typography
+                        as="a"
+                        href={RoutePath.login}
+                        variant="small"
+                        color="black"
+                        className="font-medium"
+                    >
+                        <ListItem className="flex items-center gap-2 py-2 pr-4">
+                            Login
+                            {/*<BellRinging size={16}/>*/}
+                        </ListItem>
+                    </Typography>
+            }
+
         </List>
     );
 }

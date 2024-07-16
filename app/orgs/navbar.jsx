@@ -19,7 +19,7 @@ export const NavbarWithMegaMenu = () => {
     }, []);
 
     return (
-        <Navbar className=" px-4 py-2">
+        <Navbar className="px-4 py-2">
             <div className="flex items-center justify-between text-blue-gray-900">
                 <Typography
                     as="a"

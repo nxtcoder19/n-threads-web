@@ -1,8 +1,5 @@
 import {useProductItem} from "@/app/providers/product-provider";
-import {Header} from "@/app/orgs/header";
-import {RoutePath} from "@/app/common/common";
-import {useEffect} from "react";
-import {Navbar} from "@material-tailwind/react";
+
 import {NavbarWithMegaMenu} from "@/app/orgs/navbar";
 
 export const ProductResource = () => {
@@ -18,7 +15,7 @@ export const ProductResource = () => {
         <div>
             {/*<Header/>*/}
             <NavbarWithMegaMenu/>
-            <div className="bg-gray-100 ">
+            <div className="bg-gray-100 h-screen">
                 <div className="mx-auto container py-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-8 gap-16">
                         {products?.map((productId) => (
@@ -30,7 +27,7 @@ export const ProductResource = () => {
                                 }
                                 key={productData[productId].id} className="mx-2 w-72 lg:mb-0 mb-8">
                                 <div>
-                                    <img src={productData[productId].image_url} className="w-full h-44"/>
+                                    <img src={productData[productId].imageUrl} className="w-full h-44"/>
                                 </div>
                                 <div className="bg-white">
                                     <div className="flex items-center justify-between px-4 pt-4">

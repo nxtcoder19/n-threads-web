@@ -1,7 +1,7 @@
 import {createContext, useContext} from "react";
 import {boxServer} from "@/app/common/common";
 
-const TodoApiContext = createContext()
+const TodoApiContext = createContext({})
 export const TodoApiProvider = ({children}) => {
     return (
         <TodoApiContext.Provider value={{
